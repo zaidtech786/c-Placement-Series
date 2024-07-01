@@ -11,11 +11,11 @@ int linearSearchKey(int arr[], int key, int len){
 }
 
 int binarySearchKey(int arr[], int key, int len){
-    int s = 0 , e = len;
+    int s = 0 , e = len - 1;
     int mid = (s+e) / 2 ;
-    while (s<=e){
+    while (s<e){
         if(arr[mid] == key){
-           return key;
+           return s;
         }
         else if(arr[mid] > key){
             e = mid - 1;
@@ -23,13 +23,12 @@ int binarySearchKey(int arr[], int key, int len){
         else{
             s = mid + 1;
         }
-    }
-   
-    
+    }   
 }
+
 int main()
 {
-    int arr[5] = {5,4,8,9,6};
+    int arr[5] = {4,5,6,8,9};
     int key = 6;
     cout << linearSearchKey(arr,key,5) <<endl;
     cout << binarySearchKey(arr,key,5);   

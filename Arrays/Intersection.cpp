@@ -2,33 +2,34 @@
 #include <vector>
 using namespace std;
 
-void calcIntersection(int arr1[], int arr2[],int m , int n){
+vector <int> calcIntersection(int arr1[], int arr2[],int m , int n){
     vector <int> ans;
-     for (int i = 0; i < n; i++)
-     {
-        for (int j = 0; j < m; j++)
-        {
-            if(arr1[i] == arr2[j]){
-                ans.push_back(arr1[i]);
-            }
-        }
-        
-     }
-
-     for (int i = 0; i < ans.size(); i++)
-     {
-        cout << ans[i] <<" ";
-     }
-     
-     
+   int i = 0, j = 0;
+   while (i < m && j < n)
+   {
+       if(arr1[i] < arr2[j])
+          i++;
+       
+       else if(arr2[j] < arr1[i])
+          j++;
+       
+       else{
+          ans.push_back(arr1[i]);
+          i++;
+          j++;
+       }
+   }
+   return ans;
 }
 
 
 int main()
 {
-    int arr1 [6]= {1,5,6,7,8,9}; 
-    int arr2[6] = {1,5,11,7,2,10}; 
+    int arr1 []= {1,2,3,3,4,5,6,7}; 
+    int arr2[] = {3,3,4,4,5,8}; 
 
-    calcIntersection(arr1,arr2,6,6);
+    vector <int> ans =  calcIntersection(arr1,arr2,8,6);
+    for(auto i : ans)
+       cout << i << " ";
     return 0;
 }

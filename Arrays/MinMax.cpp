@@ -12,8 +12,9 @@ int findMin(int arr[],int size){
   return min;
   
 }
+
 int findMax(int arr[],int size){
-        int max = arr[0];
+     int max = arr[0];
   for (int i = 0; i < size; i++)
   {
     if(arr[i] > max){
@@ -25,7 +26,7 @@ int findMax(int arr[],int size){
 }
 int main(){
     int arr[6] = {7,8,2,6,10,12};
-  cout << "Minimum Element is : " << findMin(arr,6) <<endl;
+   cout << "Minimum Element is : " << findMin(arr,6) <<endl;
    cout << "Maximum Element is : " <<  findMax(arr,6);
 
     return 0;

@@ -1,8 +1,12 @@
 #include <iostream>
 using namespace std;
 
+
+// Bubblesort me n - 1 round chalege aur har round me 1st maximum element sort ho jayege.
+// har round me 2 element ko compare karege.
+
 void BubbleSort(int arr[] , int n){
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
        for (int j = 0; j < n-i; j++)
        {

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <set>
 using namespace std;
 
 int findUniqueNo(int arr[], int n){
@@ -7,10 +8,9 @@ int findUniqueNo(int arr[], int n){
     {
        ans = ans ^ arr[i];
     }
-   
     return ans;
-    
 }
+
 int main(){
   int arr [] = {1,3,1,3,6,6,7,10,7};
   cout << findUniqueNo(arr,9);

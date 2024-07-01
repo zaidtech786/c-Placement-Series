@@ -2,7 +2,7 @@
 using namespace std;
 
 int findSecondLargest(int arr[] , int n){
- int sLargest = -1;
+  int sLargest = -1;
   int largest = arr[0] ;
 
   for (int i = 0; i < n; i++)
@@ -42,7 +42,7 @@ int findSecondSmallest(int arr[] , int n){
 int main()
 {
    
-    int arr[5] = {5,6,8,9,7};
+    int arr[5] = { 2, 4, 5, 6, 8};
     cout << "Second Largest : " <<  findSecondLargest(arr,5) << endl;
    cout << "Second Smallest : " << findSecondSmallest(arr,5);
 

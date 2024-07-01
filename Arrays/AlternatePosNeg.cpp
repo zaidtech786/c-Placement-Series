@@ -41,6 +41,5 @@ int main()
     int arr[] = {4, 6, -5, -2, 1, -8};
     AlternatePosNeg(arr, 6);
     printArray(arr, 6);
-
     return 0;
 }

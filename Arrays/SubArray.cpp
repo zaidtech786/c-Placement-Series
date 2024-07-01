@@ -1,36 +1,40 @@
 #include <iostream>
 #include <math.h>
+#include <vector>
+#include <limits.h>
 using namespace std;
 
-int calcMaxSubArr(int arr[] , int n){
-    int sum = 0, maxi = arr[0];
-    int start = -1 , end = -1,ans;
-    for (int  i = 0; i < n; i++)
-    {
-        if(sum == 0){
-            start = i;
-        }
-        sum+=arr[i];
-        maxi = max(maxi,sum);
-        
-        if(maxi > sum){
-            end = i;
-        }
-
-        if(sum < 0)
-         sum=0;
-
-        
+long long calcMaxSubArr(int arr[] , int n){
+ int sum = 0, maxSum = INT_MIN;
+ int start = -1 , end = -1;
+ for (int i = 0; i < n - 1; i++)
+ {
+    if(sum == 0){
+        start = i;
     }
- 
-    cout << start << "   " << end <<endl; 
-    return maxi;
-    
+    sum+=arr[i];
+    if(sum > maxSum){
+       maxSum = sum;
+       end = i;
+    }
+   
+    if(sum < 0)  sum = 0;
+ }
+
+    cout << "Subarrays : " ;
+ for (int i = start; i < end + 1; i++)
+ {
+    cout << arr[i] << " ";
+ }
+    cout << endl;
+ cout << "Maximum Sum :";
+
+ return maxSum;
 
 }
 int main()
 {
-    int arr[] = {-2,1,-3,4,-1,2,1,-5,4};
+    int arr[] = {1, 2, 7, -4, 3, 2, -10, 9, 1};
     cout << calcMaxSubArr(arr,9);
     return 0;
 }
