@@ -3,10 +3,15 @@ using namespace std;
 
 void reverseArr(int arr[],int n){
    int s = 0 , e = n - 1;
-   int temp = 0;
+   // int temp = 0;
    while (s<e)
    {
-      swap(arr[s++],arr[e--]); 
+      // swap(arr[s++],arr[e--]); // Using Method
+      int temp = arr[s];
+      arr[s] = arr[e];
+      arr[e] = temp;
+      s++;
+      e--;
    }
 } 
 
@@ -14,10 +19,8 @@ void printArray(int arr[], int n){
  for (int i = 0; i < n; i++)
  {
     cout << arr[i] << " ";
- }
- 
+ } 
 }
-
 
 
 int main(){

@@ -11,7 +11,8 @@ int main()
     // Second trick is to find using formula;
     int sum2 = no * (no + 1) / 2;
     cout << sum2 << endl;
+   
 
-    cout << " Sum of First n Natural Number is " << sum;
+    // cout << " Sum of First n Natural Number is " << sum;
     return 0;
 }

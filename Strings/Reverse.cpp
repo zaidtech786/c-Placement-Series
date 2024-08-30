@@ -2,10 +2,21 @@
 using namespace std;
 
 string reverse(string name,int len){
-    int left = 0 ,right = len - 1;
-    while (left <=right)
+    // int left = 0 ,right = len - 1;
+    // while (left <=right)
+    // {
+    //     // swap(name[left++],name[right--]);   // By using method
+    //     int temp = name[left];
+    //     name[left] = name[right];
+    //     name[right] = temp;
+    //     left++;
+    //     right--;
+    // }
+    // return name;
+    int s = 0 , e = len - 1 ;
+    while (s < e)
     {
-        swap(name[left++],name[right--]);
+        swap(name[s++],name[e--]);
     }
     return name;
     

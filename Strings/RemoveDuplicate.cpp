@@ -1,21 +1,20 @@
 #include<iostream>
 #include<set>
 using namespace std;
-
-string removeDuplicate(string s){
-    set<int>st;
-    for (int i = 0; i < s.length(); i++)
-    {
-        int number = s[i] - 'a';
-        st.insert(number);
-    }
-    for(auto i : st){
-        cout << i << " ";
+string removeDuplicate(string s) {
+    set<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        st.insert(s[i]);
     }
     
+    string result = "";
+    for (auto ch : st) {
+        result += ch;
+    }
+    return result;
 }
 int main(){
 string s = "test";
-removeDuplicate(s);
+cout << removeDuplicate(s);
 
 }

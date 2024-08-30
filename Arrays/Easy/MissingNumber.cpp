@@ -19,8 +19,11 @@ using namespace std;
   
 // }
 
-int findMissingNo(int arr[] , int n,int len){
-    int sum = (n * (n + 1)) / 2; // Sum of Natural Number 
+// If Only single missing element are there.
+int findMissingNo(int arr[] ,int len){
+    // cout << len <<endl;
+    int num = len + 1;
+    int sum = ( num  * (num + 1)) / 2; // Sum of Natural Number 
     int s = 0;
     for (int i = 0; i < len; i++)
     {
@@ -28,10 +31,24 @@ int findMissingNo(int arr[] , int n,int len){
     }
     return sum - s;
 }
+
+// If Missing Element is more than 1
+void printMissingElements(int arr[], int N)
+{
+    int cnt = 0;
+    int missingNum [N + 1];
+    for (int i = arr[0]; i <= arr[N - 1]; i++) {
+        if (arr[cnt] == i) 
+            cnt++;
+        else 
+            cout << i << " ";
+        
+    }
+}
+
 int main() { 
-    int arr [] = {1,2,4,5};  
-    int n = 5;   // n should be size of array + 1 
-    int len = sizeof(arr) / sizeof(arr[0]);
-    cout << findMissingNo(arr,n,len);
+    int arr [] = {1,4,6,7};  
+     int len = sizeof(arr) / sizeof(arr[0]);
+     printMissingElements(arr,len);
     return 0;
 }

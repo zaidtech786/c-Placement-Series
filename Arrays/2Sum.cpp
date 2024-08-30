@@ -10,9 +10,9 @@ vector <int> twoSum(int arr[] ,int n, int target){
         int num = arr[i];
         int moreNeeded = target - num;   //9 - 2 = 8   9 - 7 = 2    9 -11 = -2   9 - 15
         if(mpp.find(moreNeeded) != mpp.end()){
-            return {mpp[moreNeeded] , i};
+            return {mpp[moreNeeded] , arr[i]};
         }
-        mpp[num] = i;
+        mpp[num] = i;   //Adding the element to the map;
      }
      
     return {-1,-1};

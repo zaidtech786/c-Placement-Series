@@ -22,7 +22,7 @@ vector <int> findMissingRepeating(vector <int> arr){
 
 int main(){
 //    int arr[] = {3, 4, -1, 1};
-   vector <int> arr = {1,2,3,4,5,1};
+   vector <int> arr = {1,2,3,4,1};
     vector<int> result = findMissingRepeating(arr);
 
     // Print the result

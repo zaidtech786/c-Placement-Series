@@ -6,8 +6,8 @@ using namespace std;
         while(num>9){
             long long sum=0;
             while(num >0){
-                sum+= num%10;
-                num/=10;
+                sum+= num%10; // 8 
+                num/=10; 
             }
             num = sum;
         }

@@ -29,7 +29,7 @@ void printArray(int arr[], int n){
 
 int main(){
     int arr[] = {1,2,3,4,5}; 
-   int d = 2;
+   int d = 3;
    rotateArr(arr,d,5);
    printArray(arr,5);
 }

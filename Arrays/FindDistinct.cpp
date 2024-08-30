@@ -22,12 +22,12 @@ int findDistinct(int arr[] , int n) {
 }
 
 // Optimal Approach / Remove Duplicate
-   int countDistinct(int arr[],int n){
+   set<int> countDistinct(int arr[],int n){
        set<int> st;
        for(int i = 0 ; i< n ; i++){
          st.insert(arr[i]);
        }
-       return st.size();
+       return st;
    }
 
 int main()
@@ -35,6 +35,9 @@ int main()
   int arr[] = {1, 3, 1, 2, 4, 2, 5, 1}; 
   int n = sizeof(arr)/sizeof(arr[0]); 
   // cout << findDistinct(arr,n) <<endl;
-  cout << countDistinct(arr,n);   // Remove Duplicate
+  
+  for(auto i : countDistinct(arr,n)){
+    cout << i << " "; 
+  }
     return 0;
 }
