@@ -20,7 +20,7 @@ bool checkParenthesis(string str){
    return st.size() == 0;
 }
 int main(){
-string str = "[()]}";
+string str = "{[()]}";
 cout << checkParenthesis(str);
 
 }

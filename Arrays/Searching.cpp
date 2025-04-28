@@ -11,19 +11,14 @@ int linearSearchKey(int arr[], int key, int len){
 }
 
 int binarySearchKey(int arr[], int key, int len){
-    int s = 0 , e = len - 1;
-    int mid = (s+e) / 2 ;
-    while (s<e){
-        if(arr[mid] == key){
-           return s;
-        }
-        else if(arr[mid] > key){
-            e = mid - 1;
-        }
-        else{
-            s = mid + 1;
-        }
-    }   
+    int left = 0 , right = len - 1 , mid = (left + right) / 2;
+    while (left < right)
+    {
+       if(arr[mid]==key)  return mid;
+       else if(arr[mid] > key)  right = mid - 1;
+       else  left = mid + 1;
+    }
+    
 }
 
 int main()

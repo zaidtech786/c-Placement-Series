@@ -1,4 +1,5 @@
 #include<iostream>
+#include<unordered_set>
 #include<set>
 using namespace std;
 string removeDuplicate(string s) {
@@ -10,6 +11,20 @@ string removeDuplicate(string s) {
     string result = "";
     for (auto ch : st) {
         result += ch;
+    }
+    return result;
+}
+
+// Better approach
+string removeDuplicate2(string s) {
+    unordered_set<char> seen;  // To keep track of seen characters
+    string result = "";        // To store the final result without duplicates
+
+    for (char ch : s) {
+        if (seen.find(ch) == seen.end()) {  // If the character is not in the set
+            result += ch;                   // Add to result
+            seen.insert(ch);                // Mark it as seen
+        }
     }
     return result;
 }

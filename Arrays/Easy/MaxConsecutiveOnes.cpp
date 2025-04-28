@@ -11,7 +11,6 @@ int maxConsecutive(int arr[], int len)
             cnt++;
             maxi = max(maxi, cnt);
         }
-
         else
             cnt = 0;
     }

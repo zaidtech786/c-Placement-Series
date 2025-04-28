@@ -1,54 +1,49 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-// int findMissingNo(int arr[] , int n) {
-//     long long sn = (n * (n + 1)) / 2;
-//     long long s2n = (n * (n + 1) * (2 * n + 1)) / 6;
-//     int s = 0, s2 = 0;
-//     for (int i = 0; i < n; i++)
-//     {
-//         s+= arr[i];
-//         s2+= (long long)arr[i] * (long long)arr[i];
-//     }
-//     long long val1 = s - sn;
-//     long long val2 = s2 - s2n;
-//     val2 = val2/val1;
-//     long long x = (val1 + val2) / 2;   
-//     long long y = x - val1;
-//    return (int)y;
-  
-// }
 
 // If Only single missing element are there.
-int findMissingNo(int arr[] ,int len){
-    // cout << len <<endl;
-    int num = len + 1;
-    int sum = ( num  * (num + 1)) / 2; // Sum of Natural Number 
-    int s = 0;
-    for (int i = 0; i < len; i++)
-    {
-        s+=arr[i];
-    }
-    return sum - s;
+int findMissingNo( vector <int> arr){
+   int num = arr.size() + 1;
+   int sumOfNaturalNum = num * (num + 1) / 2;
+   int sum = 0;
+   for (int i = 0; i < arr.size(); i++)
+   {
+       sum +=arr[i];
+   }
+   return sumOfNaturalNum - sum;  
 }
 
 // If Missing Element is more than 1
-void printMissingElements(int arr[], int N)
+int printMissingElements(int arr[], int N)
 {
     int cnt = 0;
-    int missingNum [N + 1];
+    vector<int> missingNo;
     for (int i = arr[0]; i <= arr[N - 1]; i++) {
-        if (arr[cnt] == i) 
+        if (arr[cnt] == i)
             cnt++;
         else 
-            cout << i << " ";
-        
+        return i;    // this will return 1st missing number;
+            missingNo.push_back(i);
+            // cout << i << " ";
     }
+
+// Return Minimum Missing number
+// int min = 100;
+//     for(auto i : missingNo){
+//         if(i < min)
+//           min = i;
+//     }
+//     return min;
+return missingNo[0];
+
 }
 
+
 int main() { 
-    int arr [] = {1,4,6,7};  
-     int len = sizeof(arr) / sizeof(arr[0]);
-     printMissingElements(arr,len);
+    vector <int> arr = {1,2,4,5,6,7};  
+   cout <<  findMissingNo(arr) <<endl;
+//    cout << printMissingElements(arr,len);
     return 0;
 }

@@ -12,28 +12,6 @@ bool checkSorted(int arr[] , int n){
     
 }
 
-void sortArray(int arr[], int n){
-    for (int i = 0; i < n; i++)
-    {
-       for (int j = i+1; j < n; j++)
-       {
-          if(arr[j] < arr[i]){
-            swap(arr[i],arr[j]);
-          }
-       }
-       
-    }
-    
-}
-
-void printArray(int arr[], int n){
-  for (int i = 0; i < n; i++)
-  {
-    cout << arr[i] << " ";
-  }
-  
-}
-
 int main()
 {
     int arr[6] = {1,4,9,6,2,5};
@@ -43,7 +21,6 @@ int main()
     // else{
     //     cout << "Not Sorted";
     // }
-    sortArray(arr,6);
-    printArray(arr,6);
+    
     return 0;
 }

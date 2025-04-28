@@ -1,32 +1,23 @@
 #include <iostream>
+#include <vector>
+#include <unordered_set>
 #include <map>
 using namespace std;
 
 
-int RepeatingNo(int arr[], int len)
+unordered_set<int> RepeatingNo(int arr[], int len)
 {
-    int length = 0;
-    for (int i = 0; i < len; i++)
-    {
-        length = max(length,arr[i]);
-    }
-    int freq[length] = {0};
-
-    for (int i = 0; i < len ; i++)
-    {
-         freq[arr[i]]++;
-    }
-    
-    int ans = 0;
-    for (int i = 0; i < length; i++)
-    {
-        
-         if(freq[i] == 2){
-            ans = i;
-         }
-    }
-    
-    return ans;
+   unordered_set <int> seen;
+   unordered_set<int> res;
+   for (int i = 0; i < len; i++)
+   {
+      if(seen.find(arr[i]) != seen.end()){    // seen will return true if number is already present;
+          res.insert(arr[i]);
+      }
+      seen.insert(arr[i]);
+   }
+   
+return seen;
 }
 
 
@@ -40,28 +31,20 @@ int RepeatingNo2(int arr[], int len){
    }
    for(auto i : mp){
     // cout << i.first << " -> " << i.second <<endl;
-    if(i.second == 2)
+    if(i.second != 1)
       return i.first;
    }
 }
 
-// XOR Method
-int RepeatingNo3(int arr[], int len){
-    int xore = 0 , cnt = 0, ans= -1;
-    for (int i = 0; i < len; i++)
-    {
-        if(xore ^ arr[i] ){
-            ans = i;
-        }
-    }
-    return arr[ans];
-  
-}
 
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5,4};
+    int arr[] = {1, 2, 3, 4,2, 2 , 5,4,5 , 5 , 5};
     int len = sizeof(arr) / sizeof(arr[0]);
-    cout << RepeatingNo2(arr, len) << " ";
+    unordered_set <int>  ans = RepeatingNo(arr, len);
+
+    for(auto i : ans){
+        cout << i << " ";
+    }
     return 0;
 }

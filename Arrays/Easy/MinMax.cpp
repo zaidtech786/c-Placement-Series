@@ -14,12 +14,13 @@ int findMin(int arr[],int size){
 }
 
 int findMax(int arr[],int size){
-     int max = arr[0];
+     int max = 0;
   for (int i = 0; i < size; i++)
   {
     if(arr[i] > max){
         max = arr[i];
-    }
+    }      
+    //OR  maxi = max(maxi,arr[i]);   shorthand using method
   }
   return max;
 

@@ -2,31 +2,47 @@
 #include<unordered_map>
 using namespace std;
 
-bool isAnagram(string str1,string str2){
-    unordered_map<char,int> mp;
-    if(str1.length() != str2.length()){
-        return false;
-    }
+bool isAnagram(string str1,string str2){  
+    // unordered_map <char,int> mp;
+    // for(auto ch : str1){
+    //     mp[ch]++;
+    // }
+
+    // if(str1.length() != str2.length())  return false;
+    
+    // for (int i = 0; i < str2.length(); i++)
+    // {
+    //      if(mp.find(str2[i]) != mp.end()){
+    //          mp[str2[i]]-=1;
+    //      }
+    //      else return false;
+    // }
+    
+    // for(auto  i : mp){
+    //     if(i.second != 0)
+    //       return false;
+    // }
+    // return true;
+    unordered_map <char,int> mp;
     for(auto ch : str1){
         mp[ch]++;
     }
+    if(str1.length() != str2.length())  return false;
 
     for (int i = 0; i < str2.length(); i++)
     {
-        if(mp.find(str2[i]) != mp.end()){
-            mp[str2[i]] -= 1;
-        }
-        else{
-            return false;
-        }
+         if(mp.find(str2[i]) != mp.end() )   mp[str2[i]]-=1;
+         else  return false;
     }
-    
+
     for(auto i : mp){
-        if(i.second != 0){
-            return false;
-        }
+        if(i.second != 0 ) return false;
     }
-    return  true;
+
+    return true;
+    
+
+
 }
 int main(){
     // Anagrams means if a string 1 contains some letters is also present in another string.

@@ -13,14 +13,13 @@ char isLower(char ch)
     }
 }
 
-// Remove special character
-bool isValid(char ch)
-{
-    if ((ch >= 'a' && ch <= 'z') && (ch >= 'A' && ch <= 'Z') && (ch >= 0 && ch <= 9))
-        return 1;
-    else
-        return 0;
-}
+// // Remove special character
+// bool isValid(char ch) {
+//     // Check if the character is alphanumeric (a-z, A-Z, 0-9)
+//     return ((ch >= 'a' && ch <= 'z') || 
+//             (ch >= 'A' && ch <= 'Z') || 
+//             (ch >= '0' && ch <= '9'));
+// }
 
 string checkPalindrome(string s)
 {
@@ -28,7 +27,7 @@ string checkPalindrome(string s)
     while (left < right)
     {
         
-            if (isLower(s[left]) != isLower(s[right]))
+            if (tolower(s[left]) != tolower(s[right]))
                 return "Not a palidrome";
             else
             {
@@ -47,39 +46,74 @@ string reverseStr(string str){
     }
     return str;
 }
+
+// This function uses alnum inbuilt function
 bool isPalindrome(string str){
-    string rStr = "";
-    for (const auto &c :str )
-    {
-        if(isalnum(c)){
-            rStr.push_back(tolower(c));
-        }
-    }
-        if(rStr.empty()){
-            return false;
-        }
-        // string temp = rStr;
-        // string revStr =  reverseStr(rStr);
-        // cout << "Rstr " << revStr <<endl;
-        // cout << "temp " << rStr;
-        // // return temp == revStr;
-        cout << rStr ;
- int left = 0,right = rStr.length() -1 ;
-    while (left < right)
-    {
-        
-            if (rStr[left] != rStr[right])
-                return 0;
-            else
-            {
-                left++;
-                right--;
-            }
-    }
+   string newStr = "";
+  int len = str.length();
+   for (int i = 0; i < len; i++)
+   {
+      if(isalnum(str[i]))  newStr.push_back(tolower(str[i]));
+   }
+int left = 0 , right = newStr.length() - 1;
+while (left < right)
+{
+    if(newStr[left] != newStr[right])   return 0;
+    left++;
+    right--;
+}
+
 return 1;
+
 }
 
 
+bool isValid(char ch) {
+    // Check if the character is alphanumeric (a-z, A-Z, 0-9)
+    if( (ch >='a' && ch<='z') ||(ch >='A' && ch<='Z') || (ch >='1' && ch<='9') )
+      return 1;
+    else
+       return 0;
+}
+
+bool isPalindrome2(string str) {
+   string newStr = "";
+
+   for (int i = 0; i < str.length(); i++)
+   {
+      if(isValid(str[i])){
+        newStr.push_back(str[i]);
+      }
+   }
+
+   int left = 0 , right = newStr.length() - 1;
+   while (left < right)
+   {
+      if(tolower(newStr[left]) !=tolower(newStr[right]) )
+        return 0;
+      else{
+        left++;
+        right--;
+      }
+   }
+   
+   return 1;
+}
+
+
+bool normalPalindrome(string str){
+    int len = str.length();
+    int left = 0 , right = len - 1;
+    while (left < right)
+    {
+        if(str[left] != str[right])  return 0;
+        else{
+            left++;
+            right--;
+        }
+    }
+    return 1;
+}
 
 int main()
 {
@@ -90,6 +124,10 @@ int main()
     
 
     // Check Palindrom 2nd type
-    string str = "@$#$lool$#@";
-    cout << isPalindrome(str);
+    string str = "@$#$looL$#$@";
+    cout << isPalindrome2(str);
+    cout <<endl;
+
+    string normalStr = "lol";
+    cout << isPalindrome(normalStr);
 }

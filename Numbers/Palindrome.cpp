@@ -3,12 +3,12 @@ using namespace std;
 
 int main()
 {
-    int no = 212, rev = 0;
+    int no = 212, rev = 0,digit = 0;
     int temp = no;
     while (temp!=0)
     {
-       int digit = temp % 10;
-        rev = rev * 10 + digit;
+        digit = temp % 10;
+        rev = rev * 10 + digit;  //  2  1  2 
         temp/=10;
     }
     if(no == rev) {

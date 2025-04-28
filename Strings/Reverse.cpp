@@ -16,7 +16,11 @@ string reverse(string name,int len){
     int s = 0 , e = len - 1 ;
     while (s < e)
     {
-        swap(name[s++],name[e--]);
+        char temp = name[s];
+        name[s] = name[e];
+        name[e] = temp;
+        s++;
+        e--;
     }
     return name;
     

@@ -24,12 +24,12 @@ int ConvertToInteger(string str){
     int ans = 0;
     for (int i = 0; i < str.length(); i++)
     {
-        char s1 = value(str[i]);
+        char s1 = value(str[i]);  // 10 
         if(i+1 < str.length()){
-            char s2 = value(str[i + 1]);
+            char s2 = value(str[i + 1]);   //1 
 
             if(s1>=s2){
-               ans+=s1;
+               ans+=s1;   // 0 + 10 = 10 + 1 = 11 
             }
             else{
                 ans+=s2-s1;
@@ -47,5 +47,4 @@ int ConvertToInteger(string str){
 int main(){
 string str = "XI";
 cout << ConvertToInteger(str);
-
 }

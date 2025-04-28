@@ -3,24 +3,20 @@
 using namespace std;
 
 
-bool isPanagram(string str){
-  vector <bool> flag(26,false);
-  for(auto ch : str){
-    if(ch >= 'a' && ch<='z'){
-        flag[ch - 'a'] = true;
-    }
-    else if(ch >= 'A' && ch<='Z'){
-         flag[ch - 'A'] = true;
-    }
+bool isPanagram(string str) {
+  vector<bool> flag(26, false);
+  for(auto ch : str) {
+      if(isalpha(ch)) {
+          ch = tolower(ch);
+          flag[ch - 'a'] = true;
+      }
   }
-
-  for(auto ch : flag){
-    if(ch == false){
-        return false;
-    }
+  for(auto present : flag) {
+      if(!present) return false;
   }
   return true;
 }
+
 
 int main(){
     // Panagrams means all the character from a to z  must be present in the given string.

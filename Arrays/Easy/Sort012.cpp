@@ -10,8 +10,8 @@ while (mid <= high)
     else if(arr[mid] == 1)
         mid++;
     else
-        swap(arr[mid++],arr[high--]);
-}
+        swap(arr[mid++],arr[high--]);   
+}                                  
 
 }
 void printArr(int arr[] , int n){
@@ -52,12 +52,13 @@ for (int i = 0; i < n; i++)
 }
 
 int main(){
-//    int arr[] = {0,2,1,2,0};  //0 2 1 2 0   0 0 1 2 2  0 0 1 2 2   0 0 1 2 2
-//    sort012(arr,5);           //lm      h     lm     h   l m   h          
-//    printArr(arr,5);
+   int arr[] = {1,0,2,1,2,0};  //0 2 1 2 0   0 0 1 2 2  0 0 1 2 2   0 0 1 2 2
+   int size = sizeof(arr) / sizeof(arr[0]);
+   sort012(arr,size);           //lm      h     lm     h   l m   h          
+   printArr(arr,5);
 
-   int arr2 [] = {1,0,0,1,1,0};
-   sort01(arr2,6);
-    printArr(arr2,6);
+//    int arr2 [] = {1,0,0,1,1,0};
+//    sort01(arr2,6);
+//     printArr(arr2,6);
 
 }
